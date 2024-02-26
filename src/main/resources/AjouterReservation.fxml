@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="690.0" prefWidth="1248.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReservationcontroller">
+   <children>
+      <ImageView fitHeight="713.0" fitWidth="1097.0" layoutX="151.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/b.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="169.0" fitWidth="149.0" layoutX="1052.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/NO.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="1029.0" layoutY="257.0" mnemonicParsing="false" onAction="#naviguezVersNotification" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #f99d26;" text=" NOTIFICATIONS " />
+      <TextField fx:id="nbrplaceR" layoutX="666.0" layoutY="34.0" promptText="Nombre de place" />
+      <TextField fx:id="id_userR" layoutX="447.0" layoutY="195.0" prefHeight="31.0" prefWidth="3.0" promptText="Id_user" />
+      <TextField fx:id="id_eventR" layoutX="447.0" layoutY="233.0" prefHeight="0.0" prefWidth="0.0" promptText="Id_event" />
+      <TextField fx:id="emailR" layoutX="663.0" layoutY="87.0" promptText="Email" />
+      <TextField fx:id="telephoneR" layoutX="663.0" layoutY="187.0" promptText="Numéro de Télephone" />
+      <Button layoutX="716.0" layoutY="242.0" mnemonicParsing="false" onAction="#ajouterreservation" prefHeight="31.0" prefWidth="81.0" text="Ajouter " />
+      <Button layoutX="1000.0" layoutY="353.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" text="Afficher" />
+      <TableView fx:id="tableView" layoutX="357.0" layoutY="399.0" prefHeight="294.0" prefWidth="822.0">
+         <columns>
+            <TableColumn fx:id="nbrplacecol" prefWidth="131.0" text="Nombre de place" />
+            <TableColumn fx:id="id_usercol" prefWidth="64.0" text="ID_user" />
+            <TableColumn fx:id="id_eventcol" prefWidth="73.0" text="ID_event" />
+            <TableColumn fx:id="telephonecol" prefWidth="178.0" text="Numéro de Télephone" />
+            <TableColumn fx:id="adressecol" prefWidth="73.0" text="Adresse" />
+            <TableColumn fx:id="emailcol" prefWidth="64.0" text="Email" />
+            <TableColumn fx:id="deleteTC" prefWidth="92.0" text="supprimer" />
+            <TableColumn fx:id="modifyTC" prefWidth="74.0" text="Modifier" />
+            <TableColumn fx:id="notifyCol" prefWidth="73.0" text="Notifier" />
+         </columns>
+      </TableView>
+      <Button layoutX="1093.0" layoutY="353.0" onAction="#imprimer" text="Imprimer" />
+      <TextField fx:id="searchField" layoutX="357.0" layoutY="353.0" prefHeight="31.0" prefWidth="537.0" promptText="Rechercher par nombre de places" />
+      <Button layoutX="894.0" layoutY="353.0" mnemonicParsing="false" onAction="#searchReservation" text="Rechercher" />
+      <Button layoutX="1000.0" layoutY="30.0" mnemonicParsing="false" onAction="#EcoModeButton" prefHeight="35.0" prefWidth="224.0" style="-fx-background-radius: 15; -fx-background-color: #279B48;" text="Eco Mode" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text fill="#f99d26" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" textAlignment="CENTER" wrappingWidth="260.6708984375">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="#f99d26" layoutX="400.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POUR RESERVER ...">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#6b6969" layoutX="275.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUTER VOS DETAILS" textAlignment="CENTER" wrappingWidth="464.5888671875">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="adresseR" layoutX="658.0" layoutY="136.0" prefHeight="31.0" prefWidth="197.0" promptText="Adresse" />
+      <!-- Ajoutez ceci dans votre fichier FXML -->
+
+
+   </children>
+</AnchorPane>

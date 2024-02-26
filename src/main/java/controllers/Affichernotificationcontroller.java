@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class Notificationcontroller {
+public class Affichernotificationcontroller {
 
     private final NotificationServices notificationServices = new NotificationServices();
 
@@ -34,7 +34,7 @@ public class Notificationcontroller {
     @FXML
     private ComboBox<String> invitationStatusField;
 
-@FXML
+    @FXML
     private TableView<Notification> tableView;
 
     @FXML
@@ -68,8 +68,6 @@ public class Notificationcontroller {
                 );
 
                 notificationServices.ajouter(nouvelleNotification);
-
-
                 loadTableData();
             } else {
                 showErrorAlert("Erreur de saisie", "Veuillez vérifier les champs de saisie.");
@@ -106,7 +104,7 @@ public class Notificationcontroller {
         try {
             List<Notification> notifications = notificationServices.recuperer();
             ObservableList<Notification> observableList = FXCollections.observableList(notifications);
-           tableView.setItems(observableList);
+            tableView.setItems(observableList);
 
             IdRColumn.setCellValueFactory(new PropertyValueFactory<>("IdR"));
             messageColumn.setCellValueFactory(new PropertyValueFactory<>("message"));
@@ -121,7 +119,7 @@ public class Notificationcontroller {
         }
     }
 
-  @FXML
+    @FXML
     private void modifyNotification(Notification notificationToModify) {
         try {
             // Charger l'interface de modification
@@ -210,7 +208,7 @@ public class Notificationcontroller {
     @FXML
     void naviguezVersAffichage(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Notification.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Affichernotification.fxml"));
             messageField.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -233,15 +231,12 @@ public class Notificationcontroller {
 
 
     @FXML
-    void naviguezVersAfficher(ActionEvent event) {
+    void naviguezVersAjouter(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Affichernotification.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Notification.fxml"));
             messageField.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
-    /*******************************************/
-
-
 }

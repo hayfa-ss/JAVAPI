@@ -305,7 +305,7 @@ public class AjouterReservationcontroller {
 
     public void naviguezVersNotification(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/Notification.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("/Notification.fxml"));
             adresseR.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());

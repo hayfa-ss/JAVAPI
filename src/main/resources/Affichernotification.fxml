@@ -8,12 +8,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Notificationcontroller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Affichernotificationcontroller">
     <children>
         <ImageView fitHeight="606.0" fitWidth="970.0" layoutX="-2.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
 
@@ -61,8 +62,12 @@
         <TextArea fx:id="messageField" layoutX="77.0" layoutY="116.0" prefHeight="147.0" prefWidth="227.0" promptText="Message" />
         <!-- Autres éléments de l'interface utilisateur -->
 
-        <Button layoutX="763.0" layoutY="159.0" mnemonicParsing="false" onAction="#naviguezVersAfficher" prefHeight="31.0"
-                prefWidth="150.0" text="Afficher notification"/>
+        <Button layoutX="763.0" layoutY="159.0" mnemonicParsing="false" onAction="#naviguezVersAjouter" prefHeight="31.0" prefWidth="150.0" text="Ajouter" />
+      <ImageView fitHeight="503.0" fitWidth="909.0" layoutX="33.0" layoutY="-148.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/b.jpg" />
+         </image>
+      </ImageView>
     </children>
 
 </AnchorPane>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="521.0" prefWidth="734.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterEvenementController">
+    <children>
+        <Label layoutX="144.0" layoutY="22.0" text="Ajouter un Événement" textOverrun="CENTER_WORD_ELLIPSIS">
+            <font>
+                <Font name="Bodoni MT" size="36.0" />
+            </font>
+        </Label>
+        <TextField fx:id="date_departTF" layoutX="339.0" layoutY="123.0" prefHeight="40.0" prefWidth="200.0" promptText="Date fin" />
+        <TextField fx:id="date_finTF" layoutX="26.0" layoutY="123.0" prefHeight="40.0" prefWidth="200.0" promptText="Date depart" />
+        <TextField fx:id="heureTF" layoutX="26.0" layoutY="200.0" prefHeight="40.0" prefWidth="200.0" promptText="Heure" />
+        <TextField fx:id="lieuTF" layoutX="350.0" layoutY="200.0" prefHeight="40.0" prefWidth="200.0" promptText="Lieu" />
+        <TextField fx:id="typeTF" layoutX="186.0" layoutY="267.0" prefHeight="40.0" prefWidth="200.0" promptText="Type" />
+        <Button layoutX="300.0" layoutY="360.0" mnemonicParsing="false" onAction="#InsererEvenement" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #0978AC; -fx-text-fill: white;" text="Insérer" />
+        <Button layoutX="450.0" layoutY="360.0" mnemonicParsing="false" onAction="#naviguez" prefHeight="38.0" prefWidth="120.0" style="-fx-background-color: #DFD010; -fx-text-fill: white;" text="Afficher" />
+
+    </children>
+</AnchorPane>

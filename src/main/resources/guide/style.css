@@ -1,0 +1,211 @@
+.root{
+    -fx-background-color:#EAEEF4;
+}
+
+.side_ankerpane{
+    -fx-background-color:#353A56;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+}
+.inner_pane{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #748CF1;
+
+}
+.most_inner_pane{
+    -fx-background-color:#6780E2;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #748CF1;
+}
+
+#btn_workbench {
+    -fx-background-color: #6780E2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #141313;
+}
+
+#btn_workbench:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}#btn_workbench1:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}#btn_workbench2:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}#btn_workbench3:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}#btn_afficher:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}#btn_inserer:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}
+.text-field {
+    -fx-background-color: #FFFFFF; /* Couleur de fond */
+    -fx-border-color: #CCCCCC; /* Couleur de la bordure */
+    -fx-border-width: 1px; /* Épaisseur de la bordure */
+    -fx-border-radius: 5px; /* Bord arrondi */
+    -fx-effect: dropshadow(three-pass-box, rgba(14, 234, 227, 0.8), 10, 0, 0, 0); /* Effet d'ombre avec une couleur blanche semi-transparente */
+}
+
+.text-field:hover {
+    -fx-background-color: linear-gradient(to bottom, #FFFFFF, #E0E0E0); /* Dégradé de couleur pour l'arrière-plan */
+    -fx-effect: dropshadow(three-pass-box, rgba(255, 255, 255, 0.8), 10, 0, 0, 0); /* Effet d'ombre avec une couleur blanche semi-transparente */
+}
+
+
+#btn_workbench1{
+    -fx-background-color:#748CF1FF;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #141313;
+}#btn_workbench2{
+    -fx-background-color:#748CF1FF;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #141313;
+}#btn_workbench3{
+    -fx-background-color:#748CF1FF;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #141313;
+}
+.btn_workbench11{
+    -fx-background-color:#353A56;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}.dd{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#dd:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}
+.pane_1{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-style: solid;
+    -fx-border-color: #748CF1;
+}
+.progress{
+    -fx-background-color:#ffffff;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-border-style: solid;
+    -fx-border-color: #ffffff;
+}
+.pane_11{
+    -fx-background-color:#ffffff;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-border-style: solid;
+    -fx-border-color: #ffffff;
+}
+.pane_111{
+    -fx-background-color:#FD9999;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-border-style: solid;
+    -fx-border-color: #FD9999;
+
+}
+.pane_1111{
+    -fx-background-color:#353A56;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 16px;
+    -fx-background-radius: 16px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+
+.dd{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#dd:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}
+.x{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#x:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}
+.c{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#c:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}.w{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#w:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}.ww{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#ww:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}.www{
+    -fx-background-color:#748CF1;
+    -fx-border-width: 2px 2px 2px 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+#www:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+}
+

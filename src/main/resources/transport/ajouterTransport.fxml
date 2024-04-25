@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="553.0" prefWidth="890.0" styleClass="root" stylesheets="@style1.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerTransport.AjouterTransportController">
+    <children>
+        <VBox prefHeight="400.0" prefWidth="146.0">
+            <children>
+                <AnchorPane fx:id="side_ankerpane" prefHeight="547.0" prefWidth="182.0" styleClass="side_ankerpane" stylesheets="@style1.css">
+                    <children>
+                        <Pane layoutX="8.0" layoutY="14.0" prefHeight="66.0" prefWidth="160.0" styleClass="inner_pane" stylesheets="@style1.css">
+                            <children>
+                                <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                    </image>
+                                </ImageView>
+                            </children>
+                        </Pane>
+                        <Button fx:id="btn_workbench" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="89.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_workbench1" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="145.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_workbench2" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="btn_workbench3" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="259.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                            <font>
+                                <Font size="13.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+        <Pane prefHeight="403.0" prefWidth="10.0" />
+        <VBox prefHeight="400.0" prefWidth="917.0">
+            <effect>
+                <InnerShadow />
+            </effect>
+            <children>
+                <AnchorPane fx:id="side_ankerpane1" prefHeight="554.0" prefWidth="450.0" styleClass="side_ankerpane" stylesheets="@style1.css">
+                    <children>
+                        <Pane layoutX="8.0" layoutY="14.0" prefHeight="66.0" prefWidth="426.0" styleClass="inner_pane" stylesheets="@style1.css">
+                            <children>
+                                <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="314.0" text="Ajouter nom" textFill="#d42648">
+                                    <font>
+                                        <Font size="25.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </Pane>
+                        <TextField fx:id="typeTF" layoutX="71.0" layoutY="161.0" promptText="type" />
+                        <TextField fx:id="capaciteTF" layoutX="71.0" layoutY="111.0" promptText="capacite" />
+                        <TextField fx:id="statutTF" layoutX="71.0" layoutY="208.0" promptText="statut" />
+                        <Button fx:id="btn_inserer" layoutX="221.0" layoutY="360.0" mnemonicParsing="false" onAction="#InsererTransport" prefHeight="27.0" prefWidth="84.0" text="inserer" />
+                        <Button layoutX="497.0" layoutY="295.0" mnemonicParsing="false" onAction="#naviguez" text="Afficher" />
+
+
+                    </children>
+                </AnchorPane>
+            </children>
+        </VBox>
+    </children>
+</HBox>

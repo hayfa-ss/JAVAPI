@@ -1,0 +1,66 @@
+/* Exemple de style pour TableView */
+.table-view {
+    -fx-background-color: rgba(134, 79, 79, 0.26);
+}
+.side_ankerpane{
+
+
+    -fx-background-color: #bd1e1e;
+
+}
+.kk {
+    -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #D91F4E, #FF854C);
+}
+
+/* Exemple de style pour les colonnes */
+.table-column {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* Style pour TableView */
+.table-view {
+    -fx-background-color: #f2f2f2; /* Couleur de fond */
+}
+
+/* Style pour les colonnes */
+.table-column {
+    -fx-font-size: 14px; /* Taille de police */
+    -fx-font-weight: bold; /* Gras */
+}
+
+/* Style pour les cellules */
+.table-cell {
+    -fx-text-fill: #333333; /* Couleur du texte */
+    -fx-alignment: center; /* Alignement du texte au centre */
+}
+
+/* Style pour les en-têtes de colonne */
+.table-column .label {
+    -fx-padding: 8px; /* Espacement intérieur */
+}
+
+/* Style pour les lignes de la table */
+.table-row-cell {
+    -fx-background-color: #ce4646; /* Couleur de fond */
+    -fx-border-color: #cccccc; /* Couleur de la bordure */
+    -fx-border-width: 0.5px; /* Largeur de la bordure */
+}
+
+/* Style pour les lignes de la table lorsqu'elles sont survolées */
+.table-row-cell:hover {
+    -fx-background-color: #cccccc; /* Couleur de fond */
+}
+
+.container {
+    -fx-background-color: rgba(200,200,200,02);
+    -fx-background-radius:10;
+
+
+}
+.gg{
+
+
+        -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #1dcebb, #eb21ef);
+
+}

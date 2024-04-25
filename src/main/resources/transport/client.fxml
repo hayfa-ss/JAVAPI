@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="571.0" prefWidth="917.0" styleClass="kk" stylesheets="@style1.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ControllerTransport.client">
+    <children>
+        <TableView fx:id="tableView" layoutX="83.0" layoutY="88.0" prefHeight="284.0" prefWidth="750.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="types" prefWidth="159.5" text="types" />
+                <TableColumn fx:id="capaciteé" prefWidth="167.5" text="capaciteé" />
+                <TableColumn fx:id="statuts" prefWidth="168.00003051757812" text="statut" />
+                <TableColumn fx:id="choisirColumn" prefWidth="100.0" text="Choisir" />
+                <TableColumn fx:id="voirGuideColumn" prefWidth="100.0" text="Voir Guide" />
+
+            </columns>
+        </TableView>
+
+        <Label fx:id="welcomeLBL" layoutX="355.0" layoutY="14.0" text="Affichage" textFill="#ed0006">
+            <font>
+                <Font size="37.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

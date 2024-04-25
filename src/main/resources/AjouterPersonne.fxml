@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="769.0" prefWidth="943.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterPersonneController">
+    <children>
+        <TextField fx:id="nomTF" layoutX="549.0" layoutY="112.0" promptText="flen" style="-fx-background-radius: 50;" />
+        <TextField fx:id="prenomTF" layoutX="556.0" layoutY="181.0" promptText="ben flen" style="-fx-background-radius: 40;" />
+        <TextField fx:id="ageTF" layoutX="555.0" layoutY="340.0" promptText="5000" style="-fx-background-radius: 50;" />
+        <Button layoutX="1022.0" layoutY="693.0" mnemonicParsing="false" onAction="#naviguez" prefHeight="25.0" prefWidth="135.0" text="show" textFill="#245aab" />
+        <TextField fx:id="emailFt" layoutX="391.0" layoutY="264.0" prefHeight="25.0" prefWidth="429.0" promptText="flenBenFlen @gmail.com" style="-fx-background-radius: 50;" />
+
+        <Text layoutX="607.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="email" underline="true" />
+        <!-- Gender -->
+        <Text layoutX="579.0" layoutY="407.0" strokeType="OUTSIDE" strokeWidth="0.0" text="payment option " underline="true" />
+      <Text layoutX="591.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First name" underline="true" />
+      <Text layoutX="594.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last name" underline="true" />
+        <Text fill="#3e8fc9" layoutX="248.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal informations :" underline="true"> </Text>
+        <CheckBox fx:id="check2" layoutX="526.0" layoutY="435.0" mnemonicParsing="false" onAction="#visfalse" style="-fx-background-color: whiite;" text="online" textFill="#220922" />
+      <CheckBox fx:id="check21" layoutX="659.0" layoutY="435.0" mnemonicParsing="false" onAction="#vistrue" style="-fx-background-radius: 50;" text="cash" textFill="#081214" />
+      <Pane fx:id="invoicePan" layoutX="256.0" layoutY="71.0" prefHeight="647.0" prefWidth="715.0" style="-fx-background-color: #FFFFFF;" visible="false">
+         <children>
+            <AnchorPane layoutX="-14.0" layoutY="-3.0" prefHeight="672.0" prefWidth="727.0">
+               <children>
+                  <Label layoutX="232.0" layoutY="13.0" prefHeight="34.0" prefWidth="193.0" text="DiscoverTn " underline="true">
+                     <font>
+                        <Font name="Algerian" size="30.0" />
+                     </font>
+                  </Label>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="348.0" layoutX="67.0" layoutY="275.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f8f8f8" height="47.0" layoutX="67.0" layoutY="263.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+                  <Label layoutX="535.0" layoutY="90.0" text="#Invoice">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="614.0" layoutY="90.0" text="Label" />
+                  <Label layoutX="533.0" layoutY="114.0" text="#Invoice Date">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="633.0" layoutY="114.0" text="Label" />
+                  <Label layoutX="552.0" layoutY="631.0" prefHeight="17.0" prefWidth="162.0" text="thank you for choosing us ." wrapText="true" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="95.0" layoutX="67.0" layoutY="528.0" stroke="BLACK" strokeType="INSIDE" width="566.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9a9a9a" height="95.0" layoutX="440.0" layoutY="528.0" stroke="BLACK" strokeType="INSIDE" width="193.0" />
+                  <Label layoutX="97.0" layoutY="278.0" text="Label" />
+                  <Label layoutX="255.0" layoutY="278.0" text="Label" />
+                  <Label layoutX="525.0" layoutY="278.0" text="Label" />
+                  <Label layoutX="459.0" layoutY="565.0" prefHeight="27.0" prefWidth="74.0" text="Amount :" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="iamount" layoutX="549.0" layoutY="566.0" text="0" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="97.0" layoutY="333.0" text="First name" />
+                  <Label layoutX="96.0" layoutY="366.0" text="Last name " />
+                  <Label layoutX="96.0" layoutY="401.0" text="Email" />
+                  <Label layoutX="97.0" layoutY="478.0" text="Date" />
+                  <Label fx:id="ipayment" layoutX="268.0" layoutY="441.0" text="Label" />
+                  <Label fx:id="ilastname" layoutX="268.0" layoutY="366.0" text="Label" />
+                  <Label fx:id="idate" layoutX="268.0" layoutY="478.0" text="Label" />
+                  <Label fx:id="ifirstname" layoutX="268.0" layoutY="333.0" text="Label" />
+                  <Label layoutX="95.0" layoutY="438.0" text="Payment option" />
+                  <Label fx:id="iemail" layoutX="268.0" layoutY="403.0" text="Label" />
+                  <Text layoutX="344.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="your best travel  agency ">
+                     <font>
+                        <Font name="Bodoni MT" size="13.0" />
+                     </font>
+                  </Text>
+                  <Pane layoutX="543.0" layoutY="1.0" prefHeight="44.0" prefWidth="170.0" style="-fx-background-color: black;" />
+                  <Text layoutX="24.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="INVOICE" wrappingWidth="121.25390625">
+                     <font>
+                        <Font name="System Bold Italic" size="24.0" />
+                     </font>
+                  </Text>
+                  <Line endX="601.0" layoutX="125.0" layoutY="72.0" startX="-109.0" />
+                  <Text layoutX="365.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="amount" underline="true" />
+                  <Pane fx:id="paneonline" layoutX="40.0" layoutY="445.0" prefHeight="182.0" prefWidth="633.0" style="-fx-background-color: grey;" visible="true">
+
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+        <Button layoutX="1066.0" layoutY="637.0" mnemonicParsing="false" onAction="#InsererPersonne" prefHeight="25.0" prefWidth="74.0" text="Add" textFill="#245aab" />
+      <Pane layoutX="-3.0" layoutY="-3.0" prefHeight="62.0" prefWidth="1173.0" style="-fx-background-color: #2468a8;">
+         <children>
+            <Text layoutX="1121.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="◀️" wrappingWidth="28.529296875">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="1018.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="🔽">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="22.0" />
+               </font>
+            </Text>
+            <Text fill="#e1d8d8" layoutX="426.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MENU    |     RESERVATION |   RECLAMATION " wrappingWidth="408.7783203125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <Pane layoutY="-1.0" prefHeight="62.0" prefWidth="274.0" style="-fx-background-color: #245aab;">
+               <children>
+                  <Text fill="#e3e7ee" layoutX="28.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DISCOVERTN">
+                     <font>
+                        <Font name="Algerian" size="37.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Text layoutX="981.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="👨🏾‍🦱">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+        <Pane fx:id="pId" layoutX="353.0" layoutY="495.0" prefHeight="211.0" prefWidth="566.0" style="-fx-background-color: grey;" visible="true">
+         <children>
+            <Text layoutX="94.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="card number 💳" />
+            <Text layoutX="94.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="expiry date  📅" />
+            <Text layoutX="94.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CardHolder name " />
+            <Text layoutX="265.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CVC/CVV" wrappingWidth="53.70703125" />
+            <TextField fx:id="cardNum" layoutX="185.0" layoutY="39.0" prefHeight="25.0" prefWidth="227.0" style="-fx-background-radius: 50;" />
+            <TextField fx:id="cvv" layoutX="328.0" layoutY="89.0" prefHeight="25.0" prefWidth="86.0" style="-fx-background-radius: 50;" />
+            <TextField fx:id="ex" layoutX="181.0" layoutY="88.0" prefHeight="25.0" prefWidth="78.0" style="-fx-background-radius: 50;" />
+            <TextField fx:id="namehol" layoutX="197.0" layoutY="144.0" prefHeight="25.0" prefWidth="177.0" style="-fx-background-radius: 50;" />
+         </children>
+      </Pane>
+    </children>
+
+</AnchorPane>

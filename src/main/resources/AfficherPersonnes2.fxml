@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="815.0" prefWidth="1164.0" style="-fx-background-color: #fffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherPersonnesController2">
+   <children>
+      <Pane layoutX="21.0" layoutY="176.0" prefHeight="576.0" prefWidth="1094.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 25;">
+         <children>
+            <AnchorPane layoutX="725.0" layoutY="104.0" prefHeight="382.0" prefWidth="248.0">
+               <children>
+                  <Label layoutX="43.0" layoutY="45.0" text="FirstName :" textAlignment="CENTER" />
+                  <Label fx:id="firstNameinfo" layoutX="187.0" layoutY="46.0" />
+                  <Label layoutX="46.0" layoutY="83.0" text="LastName :" />
+                  <Label layoutX="48.0" layoutY="121.0" text="Email :" />
+                  <Label layoutX="43.0" layoutY="159.0" text="Payment options :" />
+                  <Label layoutX="50.0" layoutY="200.0" text="Date :" />
+                  <Label layoutX="50.0" layoutY="237.0" text="Amount :" />
+                  <Label layoutX="55.0" layoutY="271.0" text="ID :" />
+                  <Label fx:id="LastNameinfo" layoutX="187.0" layoutY="86.0" />
+                  <Label fx:id="Emailinfo" layoutX="188.0" layoutY="115.0" />
+                  <Label fx:id="PaymentOpinfo" layoutX="187.0" layoutY="158.0" />
+                  <Label fx:id="Dateinfo" layoutX="190.0" layoutY="200.0" />
+                  <Label fx:id="Amountinfo" layoutX="189.0" layoutY="235.0" />
+                  <Label fx:id="idinfo" layoutX="190.0" layoutY="271.0" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="763.0" layoutY="21.0" text="Inforamtion ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="62.0" layoutY="15.0" text="Liste View">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TableView fx:id="tableView" layoutX="57.0" layoutY="248.0" prefHeight="469.0" prefWidth="574.0">
+        <columns>
+          <TableColumn fx:id="firstName" prefWidth="97.0" text="FirstName" />
+          <TableColumn fx:id="LastName" prefWidth="103.0" text="LastName" />
+            <TableColumn fx:id="Email" prefWidth="84.0" text="Email" />
+            <TableColumn fx:id="PaymentOp" prefWidth="75.0" text="Payment options" />
+            <TableColumn fx:id="Date" prefWidth="85.0" text="Date" />
+            <TableColumn fx:id="Amount" prefWidth="82.0" text="Amount" />
+            <TableColumn fx:id="ID" prefWidth="48.0" text="ID" />
+        </columns>
+      </TableView>
+      <Label fx:id="welcomeLBL" layoutX="57.0" layoutY="130.0" prefHeight="0.0" prefWidth="98.0" text="Label">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2468a8" height="64.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1164.0" />
+      <TextField layoutX="834.0" layoutY="20.0" prefHeight="25.0" prefWidth="206.0" promptText="🔎 Recherch " style="-fx-background-radius: 50;" />
+      <ImageView fitHeight="43.0" fitWidth="35.0" layoutX="1058.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/profile-avatar-account-icon-16699.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="1090.0" layoutY="31.0" text="🔽" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="9.0" text="Work Space" textFill="WHITE">
+         <font>
+            <Font name="Candara Light" size="39.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="modifypane" layoutX="377.0" layoutY="130.0" prefHeight="512.0" prefWidth="410.0" style="-fx-background-color: #ffffff;" visible="false">
+         <children>
+            <Text layoutX="46.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FirstName :" />
+            <TextField fx:id="mfirstname" layoutX="152.0" layoutY="72.0" style="-fx-background-radius: 50;" />
+            <Text layoutX="46.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LastName :" />
+            <TextField fx:id="mlastname" layoutX="153.0" layoutY="119.0" style="-fx-background-radius: 50;" />
+            <Text layoutX="54.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" />
+            <Text layoutX="35.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment options :" />
+            <TextField fx:id="memail" layoutX="153.0" layoutY="169.0" style="-fx-background-radius: 50;" />
+            <TextField fx:id="mpaymentop" layoutX="152.0" layoutY="218.0" style="-fx-background-radius: 50;" />
+            <Text layoutX="60.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
+            <Text layoutX="57.0" layoutY="335.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amout :" />
+            <TextField fx:id="mamount" layoutX="155.0" layoutY="318.0" style="-fx-background-radius: 50;" />
+            <Text layoutX="70.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID :" />
+            <TextField fx:id="mid" editable="false" layoutX="154.0" layoutY="370.0" style="-fx-background-radius: 50;" />
+            <Button layoutX="129.0" layoutY="440.0" mnemonicParsing="false" onAction="#savemodify" prefHeight="25.0" prefWidth="60.0" style="-fx-background-radius: 50;" text="Save" />
+            <Button layoutX="245.0" layoutY="440.0" mnemonicParsing="false" onAction="#cancelmodif" prefHeight="25.0" prefWidth="60.0" style="-fx-background-radius: 50;" text="Cancel" />
+            <DatePicker fx:id="mdate" layoutX="153.0" layoutY="275.0" prefHeight="25.0" prefWidth="149.0" />
+         </children>
+      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ebebeb" height="36.0" layoutX="-8.0" layoutY="64.0" stroke="#e4e4e4" strokeType="INSIDE" width="1172.0" />
+      <Label layoutX="41.0" layoutY="74.0" text=" Home &gt; Space &gt;MyReservation" />
+      <Label layoutX="507.0" layoutY="21.0" prefHeight="25.0" prefWidth="303.0" text="Home   |   Offre     |   Service   |   About" textFill="WHITE">
+         <font>
+            <Font name="Candara Light" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="627.0" layoutY="21.0" text="🔽" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2468a8" height="25.0" layoutY="791.0" stroke="TRANSPARENT" strokeType="INSIDE" width="1164.0" />
+      <Label layoutX="177.0" layoutY="796.0" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s" textFill="WHITE" />
+   </children>
+</AnchorPane>

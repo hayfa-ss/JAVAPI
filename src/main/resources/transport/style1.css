@@ -103,3 +103,19 @@
 .kk {
     -fx-background-color: linear-gradient(from 25% 25% to 100% 100%, #ff003c, #01ffa5);
 }
+.v {
+    -fx-background-color: #748CF1;
+    -fx-border-width: 2px;
+    -fx-border-radius: 50px;
+    -fx-background-radius: 50px;
+    -fx-border-style: solid;
+    -fx-border-color: #353A56;
+}
+
+/* Définir les styles pour le survol du bouton */
+.v:hover {
+    -fx-background-color: #00ffa6; /* Couleur légèrement plus claire au survol */
+    -fx-border-color: #00ffa6; /* Bordure de couleur légèrement plus claire au survol */
+    -fx-border-width: 4px; /* Augmenter la largeur de la bordure au survol */
+    -fx-box-shadow: 0 0 10px 5px #00ffa6; /* Ajouter une ombre pour l'effet de brillance */
+}

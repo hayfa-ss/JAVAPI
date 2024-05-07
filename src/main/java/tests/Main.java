@@ -1,12 +1,9 @@
 package tests;
 
-import entities.Personne;
 import entities.Transports;
 import entities.guide;
 import services.ServiceGuide;
-import services.ServicePersonne;
 import services.ServiceTransports;
-import utils.MyDatabase;
 
 import java.sql.SQLException;
 

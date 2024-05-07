@@ -23,10 +23,12 @@ public class MainFX extends Application {
     public void start(Stage primaryStage) {
         try {                                                               /*/guide/afficherGuideClient*/
                                                                             /*/guide/afficherguide*/
+                                                                            /*/guide/ajouterguide*/
+                                                                            /*/transport/client*/
                                                                             /*/transport/afficherTransport*/
                                                                             /*/transport/ajouterTransport*/
 
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/transport/ajouterTransport.fxml"));
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/guide/afficherguide.fxml"));
 
             Parent root = (Parent)loader.load();
             Scene scene = new Scene(root);

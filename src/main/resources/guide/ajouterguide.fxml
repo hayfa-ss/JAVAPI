@@ -16,11 +16,11 @@
    <children>
       <VBox prefHeight="400.0" prefWidth="146.0">
          <children>
-            <AnchorPane fx:id="side_ankerpane" prefHeight="547.0" prefWidth="182.0" styleClass="side_ankerpane" stylesheets="@style.css">
+            <AnchorPane fx:id="side_ankerpane" prefHeight="556.0" prefWidth="182.0" styleClass="side_ankerpane" stylesheets="@style.css">
                <children>
                   <Pane layoutX="8.0" layoutY="14.0" prefHeight="66.0" prefWidth="160.0" styleClass="inner_pane" stylesheets="@style.css">
                      <children>
-                        <ImageView fitHeight="41.0" fitWidth="39.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="39.0" fitWidth="75.0" layoutX="41.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../../../../capture/téléchargement.png" />
                            </image>
@@ -61,7 +61,7 @@
                <children>
                   <Pane layoutX="8.0" layoutY="14.0" prefHeight="66.0" prefWidth="426.0" styleClass="inner_pane" stylesheets="@style.css">
                      <children>
-                        <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="314.0" text="Ajouter nom" textFill="#d42648">
+                        <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="314.0" text="Ajouter Guide" textFill="#d42648">
                            <font>
                               <Font size="25.0" />
                            </font>

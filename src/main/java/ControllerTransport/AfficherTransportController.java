@@ -78,11 +78,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceTransports;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -210,8 +216,162 @@ public class AfficherTransportController {
     }
 
 
+   /* @FXML
+    void afficherCharte(ActionEvent event) {
+        // Récupérez les données nécessaires pour votre graphique
+        // Par exemple, supposons que vous avez une liste de transports avec des types et des capacités
+
+        // Créez un axe de catégorie pour les types de transports
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Type de transport");
+
+        // Créez un axe numérique pour les capacités
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Capacité");
+
+        // Créez le graphique à barres
+        BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
+        barChart.setTitle("Capacités des transports");
+
+        // Ajoutez les données au graphique
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
+        dataSeries.setName("Capacité");
+
+        // Supposons que vous avez une liste de transports avec des types et des capacités
+        for (Transports transport : observableList) {
+            dataSeries.getData().add(new XYChart.Data<>(transport.getType(), transport.getCapacite()));
+        }
+
+        // Ajoutez la série de données au graphique
+        barChart.getData().add(dataSeries);
+
+        // Ajoutez le graphique à votre interface utilisateur
+        AnchorPane chartPane = new AnchorPane(barChart);
+        // Vous pouvez positionner le graphique comme vous le souhaitez dans votre interface utilisateur
+        // Par exemple, chartPane.setLayoutX(xValue); et chartPane.setLayoutY(yValue);
+
+        // Créez une nouvelle fenêtre pour afficher le graphique
+        Stage stage = new Stage();
+        stage.setScene(new Scene(chartPane));
+        stage.setTitle("Graphique des capacités de transport");
+        stage.show();
+    }*/
+    @FXML
+    void afficherCharte(ActionEvent event) {
+        // Récupérez les données nécessaires pour votre graphique
+        // Par exemple, supposons que vous avez une liste de transports avec des types et des capacités
+
+        // Créez un axe de catégorie pour les types de transports
+        CategoryAxis xAxis = new CategoryAxis();
+        xAxis.setLabel("Type de transport");
+
+        // Créez un axe numérique pour les capacités
+        NumberAxis yAxis = new NumberAxis();
+        yAxis.setLabel("Capacité");
+
+        // Créez le graphique à barres
+        BarChart<String, Number> barChart = new BarChart<>(xAxis, yAxis);
+        barChart.setTitle("Capacités des transports");
+
+        // Ajoutez les données au graphique
+        XYChart.Series<String, Number> dataSeries = new XYChart.Series<>();
+        dataSeries.setName("Capacité");
+
+        // Supposons que vous avez une liste de transports avec des types et des capacités
+        for (Transports transport : observableList) {
+            dataSeries.getData().add(new XYChart.Data<>(transport.getType(), transport.getCapacite()));
+        }
+
+        // Ajoutez la série de données au graphique
+        barChart.getData().add(dataSeries);
+
+        // Ajoutez le graphique à votre interface utilisateur
+        AnchorPane chartPane = new AnchorPane(barChart);
+        // Vous pouvez positionner le graphique comme vous le souhaitez dans votre interface utilisateur
+        // Par exemple, chartPane.setLayoutX(xValue); et chartPane.setLayoutY(yValue);
+
+        // Créez une nouvelle fenêtre pour afficher le graphique
+        Stage stage = new Stage();
+        stage.setScene(new Scene(chartPane));
+        stage.setTitle("Graphique des capacités de transport");
+        stage.show();
+    }
+
+    @FXML
+    void afficherChartecirculaire(ActionEvent event) {
+        // Récupérez les données nécessaires pour votre graphique
+        // Par exemple, supposons que vous avez une liste de transports avec des types et des capacités
+
+        // Créez un axe de catégorie pour les types de transports
+        PieChart pieChart = new PieChart();
+
+        // Ajoutez les données au graphique
+        for (Transports transport : observableList) {
+            pieChart.getData().add(new PieChart.Data(transport.getType(), transport.getCapacite()));
+        }
+
+        // Ajoutez le graphique à votre interface utilisateur
+        AnchorPane chartPane = new AnchorPane(pieChart);
+        // Vous pouvez positionner le graphique comme vous le souhaitez dans votre interface utilisateur
+        // Par exemple, chartPane.setLayoutX(xValue); et chartPane.setLayoutY(yValue);
+
+        // Créez une nouvelle fenêtre pour afficher le graphique
+        Stage stage = new Stage();
+        stage.setScene(new Scene(chartPane));
+        stage.setTitle("Graphique des capacités de transport");
+        stage.show();
+    }
+
 
     void setData(String param) {
         welcomeLBL.setText("Welcome " + param);
     }
+
+
+    @FXML
+    void downloadTransportList(ActionEvent event) {
+        // Générer le contenu du fichier CSV
+        String csvContent = generateTransportListCSV();
+
+        // Créer un sélecteur de fichiers
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Enregistrer la liste des transports");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers CSV (*.csv)", "*.csv"));
+
+        // Afficher la boîte de dialogue pour enregistrer le fichier
+        File selectedFile = fileChooser.showSaveDialog(new Stage());
+
+        if (selectedFile != null) {
+            // Écrire le contenu dans le fichier
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(selectedFile))) {
+                writer.write(csvContent);
+                System.out.println("La liste des transports a été enregistrée avec succès dans " + selectedFile.getAbsolutePath());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.err.println("Erreur lors de l'enregistrement du fichier : " + e.getMessage());
+            }
+        } else {
+            System.out.println("Opération d'enregistrement annulée par l'utilisateur.");
+        }
+    }
+
+    private String generateTransportListCSV() {
+        StringBuilder csvContent = new StringBuilder();
+
+        // Ajoutez les en-têtes CSV
+        csvContent.append("ID,Type,Capacité,Statut\n");
+
+        // Parcourez votre liste de transports pour ajouter chaque transport comme une ligne CSV
+        for (Transports transport : observableList) {
+            csvContent.append(transport.getId()).append(",")
+                    .append(transport.getType()).append(",")
+                    .append(transport.getCapacite()).append(",")
+                    .append(transport.getStatut()).append("\n");
+        }
+
+        return csvContent.toString();
+    }
+
+
+
 }

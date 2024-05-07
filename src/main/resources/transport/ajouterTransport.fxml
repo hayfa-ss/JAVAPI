@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -26,22 +25,22 @@
                                 </ImageView>
                             </children>
                         </Pane>
-                        <Button fx:id="btn_workbench" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="89.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                        <Button fx:id="btn_workbench" alignment="CENTER_RIGHT" layoutX="8.0" layoutY="116.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" stylesheets="@../guide/style.css" text="workBench" textFill="WHITE">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btn_workbench1" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="145.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                        <Button id="v" fx:id="btn_workbench1" alignment="CENTER" layoutX="5.0" layoutY="188.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" styleClass="v" stylesheets="@../guide/style.css" text="AJOUTER" textFill="#d13a3a">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btn_workbench2" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="200.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                        <Button id="vv" fx:id="btn_workbench2" alignment="CENTER" layoutX="11.0" layoutY="258.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" styleClass="vv" stylesheets="@../guide/style.css" text="SUPPRIMER" textFill="#ac2a2a">
                             <font>
                                 <Font size="13.0" />
                             </font>
                         </Button>
-                        <Button fx:id="btn_workbench3" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="259.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" text="workBench" textFill="WHITE">
+                        <Button id="vvv" fx:id="btn_workbench3" alignment="CENTER" layoutX="11.0" layoutY="326.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="166.0" styleClass="vvv" stylesheets="@../guide/style.css" text="MODIFIER" textFill="#b12525">
                             <font>
                                 <Font size="13.0" />
                             </font>
@@ -58,20 +57,23 @@
             <children>
                 <AnchorPane fx:id="side_ankerpane1" prefHeight="554.0" prefWidth="450.0" styleClass="side_ankerpane" stylesheets="@style1.css">
                     <children>
-                        <Pane layoutX="8.0" layoutY="14.0" prefHeight="66.0" prefWidth="426.0" styleClass="inner_pane" stylesheets="@style1.css">
+                        <Pane layoutX="110.0" layoutY="14.0" prefHeight="66.0" prefWidth="426.0" styleClass="inner_pane" stylesheets="@style1.css">
                             <children>
-                                <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="314.0" text="Ajouter nom" textFill="#d42648">
+                                <Label alignment="TOP_CENTER" layoutX="14.0" layoutY="15.0" prefHeight="26.0" prefWidth="314.0" text="Ajouter guide" textFill="#d42648">
                                     <font>
                                         <Font size="25.0" />
                                     </font>
                                 </Label>
                             </children>
                         </Pane>
-                        <TextField fx:id="typeTF" layoutX="71.0" layoutY="161.0" promptText="type" />
-                        <TextField fx:id="capaciteTF" layoutX="71.0" layoutY="111.0" promptText="capacite" />
-                        <TextField fx:id="statutTF" layoutX="71.0" layoutY="208.0" promptText="statut" />
-                        <Button fx:id="btn_inserer" layoutX="221.0" layoutY="360.0" mnemonicParsing="false" onAction="#InsererTransport" prefHeight="27.0" prefWidth="84.0" text="inserer" />
-                        <Button layoutX="497.0" layoutY="295.0" mnemonicParsing="false" onAction="#naviguez" text="Afficher" />
+                        <TextField fx:id="typeTF" layoutX="71.0" layoutY="213.0" prefHeight="36.0" prefWidth="222.0" promptText="type" />
+                        <TextField fx:id="capaciteTF" layoutX="71.0" layoutY="152.0" prefHeight="36.0" prefWidth="222.0" promptText="capacite">
+                     <font>
+                        <Font size="15.0" />
+                     </font></TextField>
+                        <TextField fx:id="statutTF" layoutX="71.0" layoutY="282.0" prefHeight="36.0" prefWidth="222.0" promptText="statut" />
+                        <Button id="a" fx:id="btn_inserer" layoutX="156.0" layoutY="381.0" mnemonicParsing="false" onAction="#InsererTransport" prefHeight="36.0" prefWidth="114.0" styleClass="a" stylesheets="@../guide/style.css" text="inserer" />
+                        <Button id="aa" layoutX="311.0" layoutY="381.0" mnemonicParsing="false" onAction="#naviguez" prefHeight="36.0" prefWidth="98.0" styleClass="aa" stylesheets="@../guide/style.css" text="Afficher" />
 
 
                     </children>

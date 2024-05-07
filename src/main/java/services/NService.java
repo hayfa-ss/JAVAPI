@@ -1,5 +1,6 @@
 package services;
 
+import javax.mail.MessagingException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface NService<N> {
 
     List<N> recuperer() throws SQLException;
 
-
-    void readById(int idn);
+    // Nouvelle méthode pour récupérer les notifications avec jointure
+    List<N> recupererAvecJointure() throws SQLException;
+    int readById(int idn);
+    void sendEmail(String to, String descri) throws MessagingException;
 }

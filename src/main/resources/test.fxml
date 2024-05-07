@@ -1,36 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.PaymentController">
-    <columnConstraints>
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-    </columnConstraints>
-    <rowConstraints>
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-    </rowConstraints>
-    <children>
-        <Label text="ID:" />
-        <TextField fx:id="idField" GridPane.columnIndex="1" />
-        <Label text="Description:" GridPane.rowIndex="1" />
-        <TextField fx:id="descriptionField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label text="Amount:" GridPane.rowIndex="2" />
-        <TextField fx:id="amountField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button text="Add" onAction="#handleAdd" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-        <Button text="Delete" onAction="#handleDelete" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-        <TableView fx:id="transactionTable" GridPane.columnIndex="2" GridPane.rowIndex="0">
-            <columns>
-                <TableColumn fx:id="idColumn" text="ID" />
-                <TableColumn fx:id="descriptionColumn" text="Description" />
-                <TableColumn fx:id="amountColumn" text="Amount" />
-            </columns>
-        </TableView>
-    </children>
-</GridPane>
+
+<AnchorPane prefHeight="747.0" prefWidth="1467.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Test">
+   <children>
+      <BorderPane layoutX="-5.0" layoutY="-4.0" prefHeight="771.0" prefWidth="261.0" style="-fx-background-color: #f99d26;">
+         <top>
+            <ImageView fitHeight="176.0" fitWidth="172.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@images/5.png" />
+               </image>
+            </ImageView>
+         </top>
+      </BorderPane>
+      <BorderPane layoutX="29.0" layoutY="8.0" prefHeight="737.0" prefWidth="1438.0" snapToPixel="false">
+         <left>
+            <VBox prefHeight="631.0" prefWidth="223.0" style="-fx-background-color: #F99D26;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Acceuil" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="Acceuil   " textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="166.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                                 <image>
+                                    <Image url="@images/home.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Events" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="     Evenements" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="167.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="32.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/event.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Lieux" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="Lieux    " textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="163.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/location.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Transport" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="   Transport" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="163.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/transport.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Reservation" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="      Reservation" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="161.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/reservation.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Pane prefHeight="141.0" prefWidth="259.0" />
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Profil" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="Profil" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="162.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/profile.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Reclamation" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="          Reclamation" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="163.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/reclamation.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Parametres" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="        Parametres" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="165.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/parametres.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Logout" prefHeight="58.0" prefWidth="259.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text=" Logout" textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="161.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/logout.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#Button_Help" prefHeight="0.0" prefWidth="223.0" style="-fx-background-radius: 15; -fx-background-color: #F99D26;" text="Help   " textFill="WHITE">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <HBox prefHeight="27.0" prefWidth="160.0">
+                           <children>
+                              <ImageView fitHeight="23.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+                                 <image>
+                                    <Image url="@images/help.png" />
+                                 </image>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox prefHeight="155.0" prefWidth="1397.0" BorderPane.alignment="CENTER" />
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

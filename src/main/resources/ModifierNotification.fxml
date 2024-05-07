@@ -9,24 +9,20 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="523.0" prefWidth="247.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ModifierNotificationcontroller">
     <children>
-        <AnchorPane layoutX="-27.0" layoutY="18.0" prefHeight="505.0" prefWidth="274.0">
+        <AnchorPane layoutX="-27.0" layoutY="18.0" prefHeight="505.0" prefWidth="446.0">
             <children>
                 <TextField fx:id="nvIdRTF" layoutX="63.0" layoutY="208.0" promptText="IdR" />
-                <ImageView fitHeight="535.0" fitWidth="258.0" layoutX="27.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="529.0" fitWidth="430.0" layoutX="27.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/3.jpg" />
+                        <Image url="@images/147.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="110.0" fitWidth="149.0" layoutX="86.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/5.png" />
-                    </image>
-                </ImageView>
-                <TextArea fx:id="nvmessageTF" layoutX="50.0" layoutY="269.0" prefHeight="147.0" prefWidth="227.0" promptText="Message" />
-                <ComboBox fx:id="nvinvitationStatusTF" layoutX="63.0" layoutY="208.0" prefHeight="31.0" prefWidth="187.0" promptText="StatusS">
+                <TextArea fx:id="nvmessageTF" layoutX="83.0" layoutY="262.0" prefHeight="119.0" prefWidth="312.0" promptText="Message" />
+                <ComboBox fx:id="nvinvitationStatusTF" layoutX="83.0" layoutY="224.0" prefHeight="31.0" prefWidth="312.0" promptText="StatusS">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
                             <String fx:value="En attente" />
@@ -34,13 +30,15 @@
                             <String fx:value="Confirmée" />
                         </FXCollections>
                     </items>
-                </ComboBox>                <Button layoutX="118.0" layoutY="465.0" mnemonicParsing="false" onAction="#modifierNotification" text="Modifier" />
-                <ComboBox fx:id="nvnotificationPreferenceTF" layoutX="63.0" layoutY="163.0" prefHeight="31.0" prefWidth="187.0" promptText="notificationPreference">
+                </ComboBox>                <Button layoutX="185.0" layoutY="404.0" mnemonicParsing="false" onAction="#modifierNotification" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #F89C25;" text="Modifier">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+                <ComboBox fx:id="nvnotificationPreferenceTF" layoutX="83.0" layoutY="177.0" prefHeight="31.0" prefWidth="312.0" promptText="notificationPreference">
                     <items>
                         <FXCollections fx:factory="observableArrayList">
-                            <String fx:value="En attente" />
-                            <String fx:value="Annulée" />
-                            <String fx:value="Confirmée" />
+                            <String fx:value="EMAIL" />
+                            <String fx:value="SMS" />
                         </FXCollections>
                     </items>
                 </ComboBox>

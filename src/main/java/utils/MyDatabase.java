@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class MyDatabase {
-    private final String URL = "jdbc:mysql://localhost:3306/crud";
+    private final String URL = "jdbc:mysql://localhost:3306/inesbase";
     private final String USER = "root";
     private final String PASSWORD = "";
     private Connection connection;
@@ -26,7 +26,7 @@ public class MyDatabase {
         return instance;
     }
 
-    public Connection getConnection() {
+    public  Connection getConnection() {
         return connection;
     }
 }

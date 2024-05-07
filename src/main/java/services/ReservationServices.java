@@ -3,12 +3,9 @@ package services;
 import models.Reservation;
 import utils.MyDatabase;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class ReservationServices implements IService<Reservation> {
@@ -81,5 +78,49 @@ public class ReservationServices implements IService<Reservation> {
     @Override
     public void readById(int id) {
         // Vous pouvez implémenter cette méthode si nécessaire
+
     }
-}
+
+    public List<Reservation> getAllReservations() throws SQLException {
+        String sql = "SELECT * FROM reservation";
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            List<Reservation> reservations = new ArrayList<>();
+            while (resultSet.next()) {
+                Reservation reservation = mapResultSetToReservation(resultSet);
+                reservations.add(reservation);
+            }
+            return reservations;
+        }
+    }
+
+    private Reservation mapResultSetToReservation(ResultSet resultSet) throws SQLException {
+        Reservation reservation = new Reservation();
+        reservation.setId(resultSet.getInt("id"));
+        reservation.setNbrplace(resultSet.getInt("nbrplace"));
+        reservation.setId_user(resultSet.getInt("id_user"));
+        reservation.setId_event(resultSet.getInt("id_event"));
+        reservation.setTelephone(resultSet.getInt("telephone"));
+        reservation.setAdresse(resultSet.getString("adresse"));
+        reservation.setEmail(resultSet.getString("email"));
+        return reservation;
+    }
+
+
+    public List<Integer> getReservationStatsByPlace() {
+        String sql = "SELECT nbrplace, COUNT(*) AS count FROM reservation GROUP BY nbrplace";
+        try (Statement statement = connection.createStatement();
+             ResultSet rs = statement.executeQuery(sql)) {
+            List<Integer> stats = new ArrayList<>();
+            while (rs.next()) {
+                int count = rs.getInt("count");
+                stats.add(count);
+            }
+            return stats;
+        } catch (SQLException e) {
+            e.printStackTrace(); // Gérer ou journaliser l'exception ici
+            return Collections.emptyList(); // Retourner une liste vide en cas d'erreur
+        }
+    }
+
+    }

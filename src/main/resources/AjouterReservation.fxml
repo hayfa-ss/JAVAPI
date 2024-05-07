@@ -1,75 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="728.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReservationcontroller">
+<AnchorPane prefHeight="728.0" prefWidth="1239.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AjouterReservationcontroller">
    <children>
-      <ImageView fitHeight="673.0" fitWidth="1088.0" layoutX="151.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="id_userR" layoutX="1163.0" layoutY="322.0" prefHeight="31.0" prefWidth="3.0" promptText="Id_user" />
+      <TextField fx:id="id_eventR" layoutX="1175.0" layoutY="291.0" prefHeight="0.0" prefWidth="0.0" promptText="Id_event" />
+      <Button layoutX="634.0" layoutY="80.0" mnemonicParsing="false" prefHeight="312.0" prefWidth="576.0" style="-fx-background-color: #ffffff;" textFill="WHITE" />
+      <ImageView fitHeight="312.0" fitWidth="460.0" layoutX="684.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/b.jpg" />
+            <Image url="@images/15.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="169.0" fitWidth="149.0" layoutX="1052.0" layoutY="110.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/NO.png" />
-         </image>
-      </ImageView>
-      <Button layoutX="1029.0" layoutY="257.0" mnemonicParsing="false" onAction="#naviguezVersNotification" prefHeight="31.0" prefWidth="166.0" style="-fx-background-color: #f99d26;" text=" NOTIFICATIONS " />
-      <TextField fx:id="nbrplaceR" layoutX="666.0" layoutY="34.0" promptText="Nombre de place" />
-      <TextField fx:id="id_userR" layoutX="447.0" layoutY="195.0" prefHeight="31.0" prefWidth="3.0" promptText="Id_user" />
-      <TextField fx:id="id_eventR" layoutX="447.0" layoutY="233.0" prefHeight="0.0" prefWidth="0.0" promptText="Id_event" />
-      <TextField fx:id="emailR" layoutX="663.0" layoutY="87.0" promptText="Email" />
-      <TextField fx:id="telephoneR" layoutX="663.0" layoutY="187.0" promptText="Numéro de Télephone" />
-      <Button layoutX="716.0" layoutY="242.0" mnemonicParsing="false" onAction="#ajouterreservation" prefHeight="31.0" prefWidth="81.0" text="Ajouter " />
-      <Button layoutX="1000.0" layoutY="353.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" text="Afficher" />
-      <TableView fx:id="tableView" layoutX="357.0" layoutY="399.0" prefHeight="294.0" prefWidth="822.0">
+      <Button layoutX="274.0" layoutY="403.0" mnemonicParsing="false" prefHeight="366.0" prefWidth="938.0" style="-fx-background-color: #ffffff;" textFill="WHITE" />
+     
+      <ComboBox fx:id="adresseR" layoutX="723.0" layoutY="291.0" prefHeight="31.0" prefWidth="398.0" promptText="Adresse" style="-fx-background-image: #ffffff;">
+      <items>
+      <FXCollections fx:factory="observableArrayList">
+         <String fx:value="Ariana" />
+         <String fx:value="Béja" />
+         <String fx:value="Ben Arous" />
+         <String fx:value="Bizerte" />
+         <String fx:value="Gabès" />
+         <String fx:value="Gafsa" />
+         <String fx:value="Jendouba" />
+         <String fx:value="Kairouan" />
+         <String fx:value="Kasserine" />
+         <String fx:value="Kébili" />
+         <String fx:value="Kef" />
+         <String fx:value="Mahdia" />
+         <String fx:value="Manouba" />
+         <String fx:value="Médenine" />
+         <String fx:value="Monastir" />
+         <String fx:value="Nabeul" />
+         <String fx:value="Sfax" />
+         <String fx:value="Sidi Bouzid" />
+         <String fx:value="Siliana" />
+         <String fx:value="Sousse" />
+         <String fx:value="Tataouine" />
+         <String fx:value="Tozeur" />
+         <String fx:value="Tunis" />
+         <String fx:value="Zaghouan" />
+      </FXCollections>
+      </items>
+      </ComboBox>
+      <Button layoutX="1142.0" layoutY="142.0" mnemonicParsing="false" onAction="#naviguezVersNotification" prefHeight="61.0" prefWidth="61.0" style="-fx-background-color: #ffffff;" textFill="WHITE" />
+      <TextField fx:id="nbrplaceR" layoutX="724.0" layoutY="205.0" prefHeight="31.0" prefWidth="398.0" promptText="Indiquez le nombre de places souhaité" />
+      <TextField fx:id="emailR" layoutX="724.0" layoutY="164.0" prefHeight="0.0" prefWidth="398.0" promptText="Veuillez saisir une adresse e-mail valide" />
+      <TextField fx:id="telephoneR" layoutX="724.0" layoutY="245.0" prefHeight="31.0" prefWidth="398.0" promptText="Entrez votre numéro de téléphone" />
+      <Button layoutX="971.0" layoutY="329.0" mnemonicParsing="false" onAction="#ajouterreservation" prefHeight="31.0" prefWidth="136.0" text="SOUMETTRE" />
+      <Button layoutX="321.0" layoutY="418.0" mnemonicParsing="false" onAction="#naviguezVersAffichage" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: #2650F9;" text="AFFICHER" textFill="#fcfcfc" />
+      <Button layoutX="599.0" layoutY="46.0" onAction="#handleGeneratePDF" text="Générer PDF" />
+
+
+      <TableView fx:id="tableView" layoutX="282.0" layoutY="479.0" prefHeight="278.0" prefWidth="923.0">
          <columns>
-            <TableColumn fx:id="nbrplacecol" prefWidth="131.0" text="Nombre de place" />
-            <TableColumn fx:id="id_usercol" prefWidth="64.0" text="ID_user" />
-            <TableColumn fx:id="id_eventcol" prefWidth="73.0" text="ID_event" />
-            <TableColumn fx:id="telephonecol" prefWidth="178.0" text="Numéro de Télephone" />
-            <TableColumn fx:id="adressecol" prefWidth="73.0" text="Adresse" />
-            <TableColumn fx:id="emailcol" prefWidth="64.0" text="Email" />
-            <TableColumn fx:id="deleteTC" prefWidth="92.0" text="supprimer" />
-            <TableColumn fx:id="modifyTC" prefWidth="74.0" text="Modifier" />
-            <TableColumn fx:id="notifyCol" prefWidth="73.0" text="Notifier" />
+            <TableColumn fx:id="nbrplacecol" prefWidth="140.0" text="Nombre de place" />
+            <TableColumn fx:id="telephonecol" prefWidth="174.0" text="Numéro de Télephone" />
+            <TableColumn fx:id="adressecol" prefWidth="88.0" text="Adresse" />
+            <TableColumn fx:id="emailcol" prefWidth="112.0" text="Email" />
+            <TableColumn fx:id="id_usercol" minWidth="0.0" prefWidth="72.0" text="ID_user" />
+            <TableColumn fx:id="id_eventcol" minWidth="0.0" prefWidth="71.0" text="ID_event" />
+            <TableColumn fx:id="modifyTC" minWidth="0.0" prefWidth="90.0" text="Modifier" />
+            <TableColumn fx:id="deleteTC" minWidth="0.0" prefWidth="93.0" text="Supprimer" />
+            <TableColumn fx:id="notifyCol" prefWidth="82.0" text="Notifier" />
          </columns>
       </TableView>
-      <Button layoutX="1093.0" layoutY="353.0" onAction="#imprimer" text="Imprimer" />
-      <TextField fx:id="searchField" layoutX="357.0" layoutY="353.0" prefHeight="31.0" prefWidth="537.0" promptText="Rechercher par nombre de places" />
-      <Button layoutX="894.0" layoutY="353.0" mnemonicParsing="false" onAction="#searchReservation" text="Rechercher" />
-      <Button layoutX="1000.0" layoutY="30.0" mnemonicParsing="false" onAction="#EcoModeButton" prefHeight="35.0" prefWidth="224.0" style="-fx-background-radius: 15; -fx-background-color: #279B48;" text="Eco Mode" textFill="WHITE">
+      <TextField fx:id="searchField" layoutX="515.0" layoutY="418.0" prefHeight="31.0" prefWidth="556.0" promptText="Rechercher par nombre de places" />
+      <Button layoutX="1075.0" layoutY="418.0" mnemonicParsing="false" onAction="#searchReservation" prefHeight="31.0" prefWidth="113.0" text="RECHERCHER" />
+      <Button layoutX="274.0" layoutY="80.0" mnemonicParsing="false" prefHeight="312.0" prefWidth="351.0" style="-fx-background-color: #ffffff;" textFill="WHITE" />
+      <ImageView fitHeight="305.0" fitWidth="321.0" layoutX="282.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/10.png" />
+         </image>
+      </ImageView>
+      <Text fill="#2650F9" layoutX="274.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" wrappingWidth="652.0000027194619">
          <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Text fill="#f99d26" strokeType="OUTSIDE" strokeWidth="0.0" text="Réservation" textAlignment="CENTER" wrappingWidth="260.6708984375">
-         <font>
-            <Font name="System Bold" size="36.0" />
-         </font>
-      </Text>
-      <Text fill="#f99d26" layoutX="400.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="POUR RESERVER ...">
-         <font>
-            <Font size="16.0" />
+            <Font name="System Bold" size="35.0" />
          </font>
       </Text>
-      <Text fill="#6b6969" layoutX="275.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AJOUTER VOS DETAILS" textAlignment="CENTER" wrappingWidth="464.5888671875">
-         <font>
-            <Font size="22.0" />
-         </font>
-      </Text>
-      <ComboBox fx:id="adresseR" layoutX="658.0" layoutY="136.0" prefHeight="31.0" prefWidth="197.0" promptText="Adresse" />
-      <!-- Ajoutez ceci dans votre fichier FXML -->
+   <HBox alignment="CENTER" spacing="10.0" />
+   <HBox alignment="CENTER" spacing="10.0" />
+   <TextField fx:id="captchaTextField" layoutX="836.0" layoutY="329.0" prefHeight="31.0" prefWidth="126.0" promptText="Enter Captcha" />
+   <Label layoutX="709.0" layoutY="334.0" prefHeight="21.0" prefWidth="69.0" text="Captcha:" />
+   <Label fx:id="captchaLabel" layoutX="769.0" layoutY="334.0" prefHeight="21.0" prefWidth="61.0" />
 
+
+      <!-- Autres éléments du FXML -->
+      <Label fx:id="totalReservationsLabel" layoutX="587.0" layoutY="382.0" text="Total Reservations: " />
+      <Label fx:id="totalPlacesReserveesLabel" layoutX="382.0" layoutY="382.0" text="Total Places Reservées: " />
+      <Button layoutX="698.0" layoutY="46.0" mnemonicParsing="false" onAction="#statistique" text="statistique" />
+      <!-- Autres éléments du FXML -->
 
    </children>
 </AnchorPane>

@@ -13,9 +13,11 @@ public class  MainFX extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterReservation.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        stage.setTitle("Ajouter Reservation");
+        stage.setTitle("JIHEDZEIRI");
         stage.setScene(scene);
         stage.show();
+
+
 
     }
 

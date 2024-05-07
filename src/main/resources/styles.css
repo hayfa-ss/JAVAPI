@@ -1,0 +1,15 @@
+/* styles.css */
+
+.chat-area {
+    -fx-background-color: #E0E0E0;
+    -fx-padding: 10px;
+    -fx-margin: 5px;
+    -fx-border-radius: 5px;
+}
+
+.user-input {
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 5px;
+    -fx-margin: 5px;
+    -fx-border-radius: 5px;
+}

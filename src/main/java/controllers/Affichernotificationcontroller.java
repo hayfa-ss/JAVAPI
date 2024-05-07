@@ -55,6 +55,8 @@ public class Affichernotificationcontroller {
     @FXML
     private TableColumn<Notification, Void> deleteTC;
     @FXML
+
+
     void ajouterNotification(ActionEvent event) {
         try {
             // Valider les champs de saisie
@@ -65,6 +67,7 @@ public class Affichernotificationcontroller {
                         messageField.getText(),
                         notificationPreferenceField.getValue(),
                         invitationStatusField.getValue()
+
                 );
 
                 notificationServices.ajouter(nouvelleNotification);
@@ -105,12 +108,10 @@ public class Affichernotificationcontroller {
             List<Notification> notifications = notificationServices.recuperer();
             ObservableList<Notification> observableList = FXCollections.observableList(notifications);
             tableView.setItems(observableList);
-
             IdRColumn.setCellValueFactory(new PropertyValueFactory<>("IdR"));
             messageColumn.setCellValueFactory(new PropertyValueFactory<>("message"));
             notificationPreferenceColumn.setCellValueFactory(new PropertyValueFactory<>("notificationPreference"));
             invitationStatusColumn.setCellValueFactory(new PropertyValueFactory<>("invitationStatus"));
-
             configureDeleteColumn();
             configureModifyColumn();
 

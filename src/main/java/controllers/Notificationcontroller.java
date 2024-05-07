@@ -16,6 +16,7 @@ import services.NotificationServices;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Notificationcontroller {
@@ -23,7 +24,8 @@ public class Notificationcontroller {
     private final NotificationServices notificationServices = new NotificationServices();
 
     @FXML
-    private TextField IdRField;
+    private TextField emailField;  // Ajout du champ emailField
+
 
     @FXML
     private TextArea messageField;
@@ -34,7 +36,7 @@ public class Notificationcontroller {
     @FXML
     private ComboBox<String> invitationStatusField;
 
-@FXML
+    @FXML
     private TableView<Notification> tableView;
 
     @FXML
@@ -54,17 +56,29 @@ public class Notificationcontroller {
 
     @FXML
     private TableColumn<Notification, Void> deleteTC;
+
+    public int idres;
+
     @FXML
     void ajouterNotification(ActionEvent event) {
+
         try {
+
             // Valider les champs de saisie
             if (validateInput()) {
-                Notification nouvelleNotification = new Notification(
-                        Integer.parseInt(IdRField.getText()),
-                        Integer.parseInt(IdRField.getText()), // Assurez-vous de convertir IdR en entier si nécessaire
+                // Vérifier l'unicité de l'email
+                if (!isEmailUnique(emailField.getText())) {
+                    showErrorAlert("Erreur d'unicité", "Cet email est déjà associé à une notification.");
+                    return;
+                }
+                Notification nouvelleNotification;
+                nouvelleNotification = new Notification(
+                        idres,
                         messageField.getText(),
                         notificationPreferenceField.getValue(),
-                        invitationStatusField.getValue()
+                        invitationStatusField.getValue(),
+                        emailField.getText()  // Récupérer la valeur de l'email
+
                 );
 
                 notificationServices.ajouter(nouvelleNotification);
@@ -78,27 +92,50 @@ public class Notificationcontroller {
             showErrorAlert("Error", e.getMessage());
         }
     }
-
-
     private boolean validateInput() {
-        // Valider que les champs nécessaires sont remplis
-        boolean isUserIdValid = !IdRField.getText().isEmpty();
-        boolean isMessageValid = !messageField.getText().isEmpty();
-        boolean isNotificationPreferenceValid = notificationPreferenceField.getValue() != null;
-        boolean isInvitationStatusValid = invitationStatusField.getValue() != null;
+        List<String> errors = new ArrayList<>();
 
-        // Afficher une alerte pour chaque champ invalide
-        if (!isUserIdValid) {
-            showErrorAlert("Erreur de saisie", "Veuillez entrer l'identifiant de l'utilisateur.");
-        } else if (!isMessageValid) {
-            showErrorAlert("Erreur de saisie", "Veuillez entrer un message.");
-        } else if (!isNotificationPreferenceValid) {
-            showErrorAlert("Erreur de saisie", "Veuillez sélectionner une préférence de notification.");
-        } else if (!isInvitationStatusValid) {
-            showErrorAlert("Erreur de saisie", "Veuillez sélectionner un statut d'invitation.");
+        if (messageField.getText().isEmpty()) {
+            errors.add("Veuillez entrer un message.");
         }
 
-        return isUserIdValid && isMessageValid && isNotificationPreferenceValid && isInvitationStatusValid;
+        if (notificationPreferenceField.getValue() == null) {
+            errors.add("Veuillez sélectionner une préférence de notification.");
+        }
+        if (!isValidEmail(emailField.getText())) {
+            errors.add("Veuillez entrer un email valide.");
+        }
+
+        if (invitationStatusField.getValue() == null) {
+            errors.add("Veuillez sélectionner un statut d'invitation.");
+        }
+
+        if (!errors.isEmpty()) {
+            showErrorAlert("Erreur de saisie", String.join("\n", errors));
+        }
+
+
+        return errors.isEmpty();
+    }
+    private boolean isValidEmail(String email) {
+        // Utiliser une expression régulière simple pour valider l'email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        return email.matches(emailRegex);
+    }
+
+    private boolean isEmailUnique(String email) {
+        try {
+            List<Notification> existingNotifications = notificationServices.recuperer();
+            for (Notification notification : existingNotifications) {
+                if (email.equals(notification.getEmail())) {
+                    return false; // L'email n'est pas unique
+                }
+            }
+            return true; // L'email est unique
+        } catch (SQLException e) {
+            showErrorAlert("Error", e.getMessage());
+            return false; // En cas d'erreur, considérez l'email comme non unique
+        }
     }
 
     @FXML
@@ -106,22 +143,22 @@ public class Notificationcontroller {
         try {
             List<Notification> notifications = notificationServices.recuperer();
             ObservableList<Notification> observableList = FXCollections.observableList(notifications);
-           tableView.setItems(observableList);
-
+            tableView.setItems(observableList);
             IdRColumn.setCellValueFactory(new PropertyValueFactory<>("IdR"));
             messageColumn.setCellValueFactory(new PropertyValueFactory<>("message"));
             notificationPreferenceColumn.setCellValueFactory(new PropertyValueFactory<>("notificationPreference"));
             invitationStatusColumn.setCellValueFactory(new PropertyValueFactory<>("invitationStatus"));
 
-            configureDeleteColumn();
+                 configureDeleteColumn();
             configureModifyColumn();
-
         } catch (SQLException e) {
             showErrorAlert("Error", e.getMessage());
         }
+
+
     }
 
-  @FXML
+    @FXML
     private void modifyNotification(Notification notificationToModify) {
         try {
             // Charger l'interface de modification
@@ -229,6 +266,7 @@ public class Notificationcontroller {
         alert.setHeaderText(null);
         alert.setContentText("Initialisation des données avec l'ID de réservation : " + reservationId);
         alert.showAndWait();
+        idres=reservationId;
     }
 
 
@@ -241,7 +279,20 @@ public class Notificationcontroller {
             System.err.println(e.getMessage());
         }
     }
-    /*******************************************/
+    @FXML
+    void statistique(ActionEvent event) {
+                try{
+                Parent root = FXMLLoader.load(getClass().getResource("/ReservationStatistics.fxml"));
+                    messageField.getScene().setRoot(root);
+        }catch (IOException e){
+                    System.err.println(e.getMessage());
+                }
+
+                }
+    }
 
 
-}
+    /******************00000000000000000*************************/
+
+
+

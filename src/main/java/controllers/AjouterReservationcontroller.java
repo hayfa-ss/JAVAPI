@@ -8,34 +8,52 @@ import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.print.PrinterJob;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 import models.Reservation;
 import services.ReservationServices;
+import utils.MyDatabase;
+
+import java.io.File;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.List;
 
 
 
 public class AjouterReservationcontroller {
-    private Notificationcontroller notificationController;
-
-
+    private Connection connection = MyDatabase.getInstance().getConnection();
 
     private final ReservationServices rs = new ReservationServices();
 
     @FXML
+    private BarChart<String, Integer> barChart;
+
+    @FXML
+    private CategoryAxis XAxis;
+
+    @FXML
+    private NumberAxis YAxis;
+
+
+
+    @FXML
+    private Label captchaLabel;
+
+    @FXML
     private TableColumn<Reservation, Void> notifyCol;
 
-
+    @FXML
+    private TextField captchaTextField;
     @FXML
     private TextField searchField;
 
@@ -80,6 +98,7 @@ public class AjouterReservationcontroller {
     private TableColumn<Reservation, Void> modifyTC;
 
 
+
     @FXML
     void initialize() {
         try {
@@ -96,9 +115,16 @@ public class AjouterReservationcontroller {
             configureModifyColumn();
             loadTableData();
             configureNotifyColumn();
+            //loadStatistics();
+            updateCaptcha();
+
+            // Set default values for id_userR and id_eventR
+            id_userR.setText("3");
+            id_eventR.setText("3");
 
         } catch (SQLException e) {
             showErrorAlert("Error", e.getMessage());
+
         }
 
 
@@ -158,6 +184,27 @@ public class AjouterReservationcontroller {
                 return;
             }
 
+
+            // Contrôle d'unicité de l'email
+            if (!isEmailUnique(emailR.getText())) {
+                showErrorAlert("Erreur d'unicité", "Cet email est déjà associé à une réservation.");
+                return;
+            }
+            // Contrôle d'unicité du numéro de téléphone
+            if (!isPhoneNumberUnique(telephoneR.getText())) {
+                showErrorAlert("Erreur d'unicité", "Ce numéro de téléphone est déjà associé à une réservation.");
+                return;
+            }
+
+
+            // Check if the entered captcha code is correct
+            String enteredCaptcha = captchaTextField.getText(); // Replace with the actual TextField for captcha input
+            if (!enteredCaptcha.equals(captchaLabel.getText())) {
+                showErrorAlert("Erreur de captcha", "Le code captcha saisi est incorrect.");
+                updateCaptcha(); // Refresh the captcha code if incorrect
+                return;
+            }
+
             Reservation nouvelleReservation = new Reservation(
                     Integer.parseInt(nbrplaceR.getText()),
                     Integer.parseInt(id_userR.getText()),
@@ -167,8 +214,10 @@ public class AjouterReservationcontroller {
                     emailR.getText()
             );
 
+
             rs.ajouter(nouvelleReservation);
             loadTableData();
+            updateCaptcha(); // Refresh the captcha code after successful submission
 
         } catch (NumberFormatException e) {
             showErrorAlert("Error", "Veuillez saisir des valeurs numériques valides pour les champs numériques.");
@@ -176,7 +225,39 @@ public class AjouterReservationcontroller {
             showErrorAlert("Error", e.getMessage());
         }
 
+
     }
+
+    private boolean isPhoneNumberUnique(String phoneNumber) {
+        try {
+            List<Reservation> existingReservations = rs.recuperer();
+            for (Reservation reservation : existingReservations) {
+                if (Integer.parseInt(phoneNumber) == reservation.getTelephone()) {
+                    return false; // Le numéro de téléphone n'est pas unique
+                }
+            }
+            return true; // Le numéro de téléphone est unique
+        } catch (SQLException e) {
+            showErrorAlert("Error", e.getMessage());
+            return false; // En cas d'erreur, considérez le numéro comme non unique
+        }
+    }
+
+    private boolean isEmailUnique(String email) {
+        try {
+            List<Reservation> existingReservations = rs.recuperer();
+            for (Reservation reservation : existingReservations) {
+                if (email.equals(reservation.getEmail())) {
+                    return false; // The email is not unique
+                }
+            }
+            return true; // The email is unique
+        } catch (SQLException e) {
+            showErrorAlert("Error", e.getMessage());
+            return false; // In case of an error, consider the email as non-unique
+        }
+    }
+
 
     // Contrôle de saisie pour les champs numériques
     private boolean isNumeric(String str) {
@@ -198,6 +279,7 @@ public class AjouterReservationcontroller {
         // Vérifier si le numéro de téléphone a exactement 8 chiffres
         return phoneNumber.matches("\\d{8}");
     }
+
 
     /**************************************************************************************/
 
@@ -232,6 +314,7 @@ public class AjouterReservationcontroller {
         modifyTC.setCellFactory(param -> new TableCell<>() {
 
             private final Button modifyButton = new Button("Modifier");
+
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -274,6 +357,7 @@ public class AjouterReservationcontroller {
 
         });
     }
+
     // Show an error alert with the given title and message
     private void showErrorAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -287,7 +371,7 @@ public class AjouterReservationcontroller {
 
     private void loadTableData() throws SQLException {
         // Read all  from the service
-        List<Reservation> reservations =rs.recuperer();
+        List<Reservation> reservations = rs.recuperer();
 
         // Add the  to the TableView
         tableView.getItems().addAll(reservations);
@@ -305,35 +389,20 @@ public class AjouterReservationcontroller {
 
     public void naviguezVersNotification(ActionEvent actionEvent) {
         try {
-                Parent root = FXMLLoader.load(getClass().getResource("/Notification.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/Affichernotification.fxml"));
             adresseR.getScene().setRoot(root);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
     }
 
-    /**************************************************************************************************/
-    @FXML
-    void imprimer(ActionEvent event) {
-        PrinterJob job = PrinterJob.createPrinterJob();
-        if (job != null) {
-            if (job.showPrintDialog(tableView.getScene().getWindow())) {
-                print(job, tableView);
-                job.endJob();
-            }
-        }
-    }
-
-    private void print(PrinterJob job, Node node) {
-        job.printPage(node);
-
-
-    }
-
 
     /***********************************************************/
     private void configureNotifyColumn() {
         notifyCol.setCellFactory(param -> new TableCell<>() {
+
+            private final Button notifyButton = new Button("Notifier");
+
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
@@ -341,8 +410,8 @@ public class AjouterReservationcontroller {
                 if (empty) {
                     setGraphic(null);
                 } else {
-                    setText("Notifier");
-                    setOnMouseClicked(event -> {
+                    setGraphic(notifyButton);
+                    notifyButton.setOnAction(event -> {
                         Reservation reservationToNotify = getTableView().getItems().get(getIndex());
                         notifyWithReservationId(reservationToNotify.getId());
                     });
@@ -351,15 +420,15 @@ public class AjouterReservationcontroller {
         });
     }
 
-   /******************************************************************/
+    /******************************************************************/
 
-   private void notifyWithReservationId(int reservationId) {
-       // Afficher un message avec l'ID de réservation
-       System.out.println("Notifié avec l'ID de réservation : " + reservationId);
+    private void notifyWithReservationId(int reservationId) {
+        // Afficher un message avec l'ID de réservation
+        System.out.println("Notifié avec l'ID de réservation : " + reservationId);
 
-       // Passer à la vue de Notification.fxml
-       navigateToNotificationView(reservationId);
-   }
+        // Passer à la vue de Notification.fxml
+        navigateToNotificationView(reservationId);
+    }
 
     private void navigateToNotificationView(int reservationId) {
         try {
@@ -402,8 +471,143 @@ public class AjouterReservationcontroller {
 
     public void EcoModeButton(ActionEvent actionEvent) {
     }
+  /*  @FXML
+    void Button_Acceuil(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Events(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Help(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Lieux(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Logout(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Parametres(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Profil(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Reclamation(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Reservation(ActionEvent event) {
+
+    }
+
+    @FXML
+    void Button_Transport(ActionEvent event) {
+
+    }
+
+*/
+
+
+    private String generateCaptchaCode() {
+        // Generate a random 4-digit captcha code
+        int captchaCode = (int) (Math.random() * 9000) + 1000;
+        return String.valueOf(captchaCode);
+    }
+
+    private void updateCaptcha() {
+        // Update the captcha label with a new captcha code
+        captchaLabel.setText(generateCaptchaCode());
+    }
+
+
+    @FXML
+    private void handleGeneratePDF(ActionEvent event) {
+        try {
+            // Créer une instance de ReservationServices
+            ReservationServices reservationServices = new ReservationServices();
+
+            // Récupérer la liste des réservations depuis la base de données
+            List<Reservation> reservations = reservationServices.getAllReservations();
+
+            // Utiliser un FileChooser pour permettre à l'utilisateur de choisir l'emplacement du fichier
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Fichiers PDF", "*.pdf"));
+            File selectedFile = fileChooser.showSaveDialog(null);
+
+            if (selectedFile != null) {
+                String filePath = selectedFile.getAbsolutePath();
+                // Générer le fichier PDF avec la liste des réservations
+                PDFGenerator.generatePDF(filePath, reservations);
+                showErrorAlert("PDF généré avec succès", "Le fichier PDF a été créé avec succès : " + filePath);
+            } else {
+                showErrorAlert("Annulé", "La génération du PDF a été annulée.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showErrorAlert("Erreur", "Une erreur s'est produite lors de la récupération des réservations : " + e.getMessage());
+        }
+    }
+
+    public void statistique(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/ReservationStatistics.fxml"));
+            Parent root = loader.load();
+
+            // Obtenir le contrôleur de Notificationcontroller
+            ReservationStatistics reservationStatistics = loader.getController();
+
+            // Appeler la méthode pour initialiser les données avec l'ID de réservations
+
+            // Afficher la vue de Notification.fxml
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.setTitle("Notification");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Méthode pour afficher les statistiques
+    /*public void loadStatistics() {
+        System.out.println("Loading statistics...");
+
+        ReservationServices reservationServices = new ReservationServices();
+        List<Integer> stats = reservationServices.getReservationStatsByPlace();
+
+        displayStatistics(stats);
+    }
+
+    private void displayStatistics(List<Integer> stats) {
+        barChart.getData().clear();
+
+        XYChart.Series<String, Integer> series = new XYChart.Series<>();
+        series.setName("Statistiques de réservation");
+
+        for (int i = 0; i < stats.size(); i++) {
+            series.getData().add(new XYChart.Data<>("Nombre de places : " + (i + 1), stats.get(i)));
+        }
+
+        barChart.getData().add(series);
+    }*/
+
+    // ...
+
 }
-
-
-
-
